@@ -22,3 +22,10 @@ Running the script using 'cscript' is recommended, as all "logging" (wscript.ech
 EXAMPLE: cscript C:\scripts\bkuser\bkuser.vbs
 
 ![script execution from the backup server](bkuser-script-vbr95.png)
+__Script execution from the backup server__
+
+![policy definition using the variable](bkuser-policy-objects-vbr95.png)
+__Policy definition using the variable__
+
+![file-level recovery from a backup](bkuser-FLR-win10-01.png)
+__File-level recovery from a backup__
