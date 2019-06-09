@@ -24,6 +24,8 @@ Running the script using `cscript` is recommended, as all "logging" (`wscript.ec
 
 EXAMPLE: `cscript C:\scripts\bkuser\bkuser.vbs`
 
+---------------
+
 ![script execution from the backup server](bkuser-script-vbr95.png)
 _Script execution from the backup server_
 
@@ -32,6 +34,8 @@ _Policy definition using the variable_
 
 ![file-level recovery from a backup](bkuser-FLR-win10-01.png)
 _File-level recovery from a backup_
+
+---------------
 
 __NOTE:__ Of course, this is __very__ crude and __very__ far from perfect. 
 
