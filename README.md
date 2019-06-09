@@ -8,7 +8,7 @@ This script was born to facilitate backup policy creations for workstations in V
 
 The script does the following:
 
-  -  Parses a list of computers (hostnames or IPs) from a CSV file (`list.csv`), then for each of them:
+  -  Parses a list of computers (hostnames or IPs) from a CSV file (`list.csv`, newline-delimited), then for each of them:
   	  -  Retrieves the last logged on user name from the Windows registry
 	  -  Sets an environmental variable ("bkuser") in the system context, with the last logged on user name as value
 
