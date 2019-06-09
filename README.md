@@ -20,3 +20,5 @@ USAGE: open an elevated Command Prompt (CMD.EXE / Run as Administrator) and run 
 Running the script using 'cscript' is recommended, as all "logging" (wscript.echo) output would be written to console (command prompt window) rather than pop-up boxes.
 
 EXAMPLE: cscript C:\scripts\bkuser\bkuser.vbs
+
+![script execution from the backup server](bkuser-script-vbr95.png)
