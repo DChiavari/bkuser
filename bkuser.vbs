@@ -20,7 +20,7 @@
 
 Const HKEY_LOCAL_MACHINE = &H80000002
 
-Set objFSO = CreateObject("Scripting.FileSystemObject")	'create object to read input CSV (text) file
+Set objFSO = CreateObject("Scripting.FileSystemObject")		'create object to read input CSV (text) file
 Set inputFile = objFSO.OpenTextFile("list.csv", 1)		'open CSV file to parse computer list
 ComputerList = Split(inputFile.ReadAll, vbCrLf)			'populate ComputerList array with entries from CSV file, using newlines (vbCrLf) as delimiters
 
@@ -36,12 +36,12 @@ For Each Computer in ComputerList
 	objRegistry.GetStringValue HKEY_LOCAL_MACHINE, strKeyPath, strValueName, strValue							'Read the value from the registry
 	wscript.echo "Retrieved LastLoggedOnUser key from registry: " & strValue & " for computer: " & Computer
 	
-	SlashPosition = InStr(strValue,"\")						'look for first occurrence of slash (\) inside string. Store position in variable
-	AmpersandPosition = InStr(strValue,"@")					'look for first occurrence of ampersand (@) inside string. Store position in variable
+	SlashPosition = InStr(strValue,"\")		'look for first occurrence of slash (\) inside string. Store position in variable
+	AmpersandPosition = InStr(strValue,"@")		'look for first occurrence of ampersand (@) inside string. Store position in variable
 
-	If SlashPosition > 0 then 								'if username string contains a slash...
+	If SlashPosition > 0 then 					'if username string contains a slash...
 		LastUsername = Mid(strValue,SlashPosition+1)		'... cut out the domain name that precedes the actual username
-	ElseIf AmpersandPosition > 0 then 						'if username contains an ampersand...
+	ElseIf AmpersandPosition > 0 then 				'if username contains an ampersand...
 		LastUsername = Left(strValue,AmpersandPosition-1)	'... cut out the domain name that follows the actual username
 	Else 
 		LastUsername = "ERROR - Something's fishy here... LastLoggedOnUser appears to be '"&strValue&"' ?? Exiting..."	'if no slash or ampersand is found, something's not quite right
@@ -49,12 +49,12 @@ For Each Computer in ComputerList
 		wscript.quit
 	End If
 	
-	Set objShell = CreateObject("WScript.Shell")										'create object to execute a command
-	cmdStringSetVar = "SETX " & "bkuser " & LastUsername & " /M"						'define the command: 'SETX bkuser <username> /M'
+	Set objShell = CreateObject("WScript.Shell")						'create object to execute a command
+	cmdStringSetVar = "SETX " & "bkuser " & LastUsername & " /M"				'define the command: 'SETX bkuser <username> /M'
 	wscript.echo "Sending command: '" & cmdStringSetVar & "' to computer: " & Computer	'log the command to console before executing it
 	
 	Set sobjWMIService = GetObject("winmgmts:\\" & Computer & "\root\cimv2:Win32_Process")	'define WMI object needed to run command remotely
-    sintReturn = sobjWMIService.Create(cmdStringSetVar, null, null, sintProcessID)			'run the command and store return code in variable 'sintReturn'
+    sintReturn = sobjWMIService.Create(cmdStringSetVar, null, null, sintProcessID)		'run the command and store return code in variable 'sintReturn'
     Select Case sintReturn
         Case 0 'Successful Completion
             wscript.Echo("Successful Completion")
