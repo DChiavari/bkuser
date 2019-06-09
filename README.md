@@ -14,7 +14,7 @@ The script does the following:
 
 After doing this, it is easy to leverage the "bkuser" environmental variable when creating a backup policy from within Veeam Backup & Replication (or standalone Veeam Agent as well).
 
-For example: in order to back up only the 'Desktop' folders, "C:\Users\%bkuser%\Desktop" can be used.
+For example: in order to back up only the 'Desktop' folders, "C:\Users\\%bkuser%\Desktop" can be used.
 
 USAGE: open an elevated Command Prompt (CMD.EXE / Run as Administrator) and run the script directly.
 cscript is suggested, as all "logging" (wscript.echo) output would be written to console (command prompt window) rather than pop-up boxes.
