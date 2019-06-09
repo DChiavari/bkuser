@@ -16,7 +16,7 @@ After doing this, it is easy to leverage the `bkuser` environmental variable whe
 
 For example: in order to back up only the 'Desktop' folders, `C:\Users\%bkuser%\Desktop` can be used.
 
-In order to run the script, you need to have administrative privileges on the machine you are running the script form and on all target workstations.
+In order to run the script, you need to have administrative privileges on the machine you are running the script from and on all target workstations.
 
 USAGE: open an elevated Command Prompt (Run as Administrator) and run the script directly: `C:\scripts\bkuser\bkuser.vbs`
 
